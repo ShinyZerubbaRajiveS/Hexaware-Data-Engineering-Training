@@ -1,0 +1,276 @@
+// create collection implicitly by inserting data
+db.employees.insertMany([  // employee built in collection(like table)
+  {_id: 1, name: 'Clark', dept: 'Sales', salary: 45000, city: "Hyderabad" }, // each row object
+  {_id: 2, name: 'Dave', dept: 'Accounting', salary:50000, city:"Bangalore" },
+  {_id: 3, name: 'Ava', dept: 'Sales', salary: 47000, city: "Mumbai" } //_id -> keyword
+]);
+
+print("Initial Data:");
+printjson(db.employees.find().toArray()); //selectc all  -- will give o/p in array of objects for all so .toArray() is not mandatory
+
+//filter
+print("\nEmployees in Sales dept");
+printjson(db.employees.find({dept: "Sales"})); // like where clause
+
+//specific field
+print("\nOnly Name and Department");
+printjson(db.employees.find({}, {name:1,dept:1,_id:0}));
+
+//updateOne 
+print("\nBefore update")
+printjson(db.employees.find({_id:1}));
+db.employees.updateOne({_id:1},{$set: {salary:48000}});
+print("\nAfter update")
+printjson(db.employees.find({_id:1}));
+
+//updateMany
+print("\nBefore update")
+printjson(db.employees.find({dept:"Sales"}));
+db.employees.updateMany({dept:"Sales"},{$set: {bonus:5000}});// adds a new object
+print("\nAfter update")
+printjson(db.employees.find({dept:"Sales"}));
+
+//deleteOne 
+print("\nBefore deleteOne")
+printjson(db.employees.find());
+db.employees.deleteOne({_id:2});
+print("\nAfter deleteOne")
+printjson(db.employees.find());
+
+//deleteMany
+print("\nBefore deleteMany")
+printjson(db.employees.find());
+db.employees.deleteMany({dept:"Sales"});// adds a new object
+print("\nAfter deleteMany")
+printjson(db.employees.find());
+
+--------------------------------
+#RESULTS
+--------------------------------
+Output:
+{ acknowledged: true, insertedIds: { '0': 1, '1': 2, '2': 3 } }
+
+
+Initial Data:
+
+[
+  {
+    _id: 1,
+    name: 'Clark',
+    dept: 'Sales',
+    salary: 45000,
+    city: 'Hyderabad'
+  },
+  {
+    _id: 2,
+    name: 'Dave',
+    dept: 'Accounting',
+    salary: 50000,
+    city: 'Bangalore'
+  },
+  {
+    _id: 3,
+    name: 'Ava',
+    dept: 'Sales',
+    salary: 47000,
+    city: 'Mumbai'
+  }
+]
+
+
+Employees in Sales dept
+
+[
+  {
+    _id: 1,
+    name: 'Clark',
+    dept: 'Sales',
+    salary: 45000,
+    city: 'Hyderabad'
+  },
+  {
+    _id: 3,
+    name: 'Ava',
+    dept: 'Sales',
+    salary: 47000,
+    city: 'Mumbai'
+  }
+]
+
+
+Only Name and Department
+
+[
+  {
+    name: 'Clark',
+    dept: 'Sales'
+  },
+  {
+    name: 'Dave',
+    dept: 'Accounting'
+  },
+  {
+    name: 'Ava',
+    dept: 'Sales'
+  }
+]
+
+
+Before update
+
+[
+  {
+    _id: 1,
+    name: 'Clark',
+    dept: 'Sales',
+    salary: 45000,
+    city: 'Hyderabad'
+  }
+]
+
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+After update
+
+[
+  {
+    _id: 1,
+    name: 'Clark',
+    dept: 'Sales',
+    salary: 48000,
+    city: 'Hyderabad'
+  }
+]
+
+
+Before update
+
+[
+  {
+    _id: 1,
+    name: 'Clark',
+    dept: 'Sales',
+    salary: 48000,
+    city: 'Hyderabad'
+  },
+  {
+    _id: 3,
+    name: 'Ava',
+    dept: 'Sales',
+    salary: 47000,
+    city: 'Mumbai'
+  }
+]
+
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 2,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+
+After update
+
+[
+  {
+    _id: 1,
+    name: 'Clark',
+    dept: 'Sales',
+    salary: 48000,
+    city: 'Hyderabad',
+    bonus: 5000
+  },
+  {
+    _id: 3,
+    name: 'Ava',
+    dept: 'Sales',
+    salary: 47000,
+    city: 'Mumbai',
+    bonus: 5000
+  }
+]
+
+
+Before deleteOne
+
+[
+  {
+    _id: 1,
+    name: 'Clark',
+    dept: 'Sales',
+    salary: 48000,
+    city: 'Hyderabad',
+    bonus: 5000
+  },
+  {
+    _id: 2,
+    name: 'Dave',
+    dept: 'Accounting',
+    salary: 50000,
+    city: 'Bangalore'
+  },
+  {
+    _id: 3,
+    name: 'Ava',
+    dept: 'Sales',
+    salary: 47000,
+    city: 'Mumbai',
+    bonus: 5000
+  }
+]
+
+{ acknowledged: true, deletedCount: 1 }
+
+After deleteOne
+
+[
+  {
+    _id: 1,
+    name: 'Clark',
+    dept: 'Sales',
+    salary: 48000,
+    city: 'Hyderabad',
+    bonus: 5000
+  },
+  {
+    _id: 3,
+    name: 'Ava',
+    dept: 'Sales',
+    salary: 47000,
+    city: 'Mumbai',
+    bonus: 5000
+  }
+]
+
+
+Before deleteMany
+
+[
+  {
+    _id: 1,
+    name: 'Clark',
+    dept: 'Sales',
+    salary: 48000,
+    city: 'Hyderabad',
+    bonus: 5000
+  },
+  {
+    _id: 3,
+    name: 'Ava',
+    dept: 'Sales',
+    salary: 47000,
+    city: 'Mumbai',
+    bonus: 5000
+  }
+]
+
+{ acknowledged: true, deletedCount: 2 }
+
+After deleteMany
