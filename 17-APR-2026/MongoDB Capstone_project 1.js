@@ -1,3 +1,5 @@
+//----- Online Store Order Analytics -----
+
 // --- Basic Queries ---
 
 // 1 Display all documents from the customers collection.
