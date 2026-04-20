@@ -1,0 +1,7 @@
+Eligible Students (Marks >= 75 and Attendance >= 80%)
+Rahul - Marks: 85 - Attendance: 88.0% - Course: Python - Grade: B
+Sneha - Marks: 92 - Attendance: 96.0% - Course: Data Engineering - Grade: A
+Arjun - Marks: 78 - Attendance: 80.0% - Course: Python - Grade: B
+Priya - Marks: 88 - Attendance: 92.0% - Course: AI - Grade: B
+
+Total Eligible Students: 4
