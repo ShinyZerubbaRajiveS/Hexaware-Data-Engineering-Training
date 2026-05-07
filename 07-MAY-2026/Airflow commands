@@ -1,0 +1,25 @@
+docker run -d -p 8080:8080 --name airflow apache/airflow standalone 
+
+docker ps 
+
+docker logs airflow 
+
+Menu ---> traffic/port ---> enter username&pwd 
+
+docker exec -it airflow bash 
+
+cd /opt/airflow/dags 
+
+cat > first_dag.py 
+
+Paste code 
+
+Click enter ---- press ctrl+D 
+
+Exit 
+
+docker restart airflow 
+
+Wait 1 min....  
+
+Go to UI  ---> Click DAG  -->  Run ---> Trigger 
