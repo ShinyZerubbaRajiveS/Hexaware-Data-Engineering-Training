@@ -1,0 +1,145 @@
+/opt/airflow/dags/student_marks_workflow_dag.py
+
+from airflow import DAG
+from airflow.providers.standard.operators.python import PythonOperator
+from datetime import datetime
+
+
+# -----------------------------------
+# Task 1 - Create Marks File
+# -----------------------------------
+
+def create_marks_file():
+
+    with open("/tmp/student_marks.txt", "w") as file:
+        file.write("Math,80\n")
+        file.write("Science,75\n")
+        file.write("English,90\n")
+        file.write("Python,95\n")
+
+    print("student_marks.txt file created")
+
+
+# -----------------------------------
+# Task 2 - Read Marks File
+# -----------------------------------
+
+def read_marks_file():
+
+    with open("/tmp/student_marks.txt", "r") as file:
+        lines = file.readlines()
+
+    print("Student Marks:")
+
+    for line in lines:
+        print(line.strip())
+
+
+# -----------------------------------
+# Task 3 - Calculate Total
+# -----------------------------------
+
+def calculate_total():
+
+    total = 0
+
+    with open("/tmp/student_marks.txt", "r") as file:
+
+        for line in file:
+
+            subject, mark = line.strip().split(",")
+
+            total += int(mark)
+
+    print(f"Total Marks = {total}")
+
+
+# -----------------------------------
+# Bonus Task - Percentage Calculation
+# -----------------------------------
+
+def percentage_calculation():
+
+    total = 0
+
+    with open("/tmp/student_marks.txt", "r") as file:
+
+        for line in file:
+
+            subject, mark = line.strip().split(",")
+
+            total += int(mark)
+
+    percentage = total / 4
+
+    print(f"Percentage = {percentage}")
+
+
+# -----------------------------------
+# Task 4 - Generate Result File
+# -----------------------------------
+
+def generate_result():
+
+    total = 0
+
+    with open("/tmp/student_marks.txt", "r") as file:
+
+        for line in file:
+
+            subject, mark = line.strip().split(",")
+
+            total += int(mark)
+
+    result = "PASS"
+
+    with open("/tmp/result.txt", "w") as file:
+
+        file.write("Student Result Summary\n")
+        file.write(f"Total Marks = {total}\n")
+        file.write(f"Result = {result}\n")
+
+    print("result.txt file created")
+
+
+# -----------------------------------
+# DAG Definition
+# -----------------------------------
+
+with DAG(
+    dag_id="student_marks_workflow_dag",
+    start_date=datetime(2026, 5, 7),
+    schedule=None,
+    catchup=False
+) as dag:
+
+    create_marks_file_task = PythonOperator(
+        task_id="create_marks_file",
+        python_callable=create_marks_file
+    )
+
+    read_marks_file_task = PythonOperator(
+        task_id="read_marks_file",
+        python_callable=read_marks_file
+    )
+
+    calculate_total_task = PythonOperator(
+        task_id="calculate_total",
+        python_callable=calculate_total
+    )
+
+    percentage_calculation_task = PythonOperator(
+        task_id="percentage_calculation",
+        python_callable=percentage_calculation
+    )
+
+    generate_result_task = PythonOperator(
+        task_id="generate_result",
+        python_callable=generate_result
+    )
+
+    # -----------------------------------
+    # Dependencies
+    # -----------------------------------
+
+    create_marks_file_task >> read_marks_file_task >> calculate_total_task >> percentage_calculation_task >> generate_result_task
