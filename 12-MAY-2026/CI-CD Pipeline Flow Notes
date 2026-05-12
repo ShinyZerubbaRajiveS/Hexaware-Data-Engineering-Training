@@ -1,0 +1,140 @@
+4 members(3 developer + 1 tester) -- Write code Mon to Friday -- Friday 2nd half -- Merge the code -- Build and Deploy
+
+Dev Env -- Server
+
+QA Env -- Testing Will happen -- file Bugs -- Dev will fix bugs
+
+Cont Integration
+    -- checkin the code -- Build should happen --- Artifact is created -- Package
+
+Cont Deployment
+    -- Package of CI -- Deployed in the Azure VM or Server or Web App
+
+
+Example Scenario:
+Project Team: 4 Members
+Task:Build and Deploy an Application
+Each developer writes part of the code, then everything is combined, tested, packaged, and finally deployed.
+
+---
+
+1. Development Environment (Dev Env)
+
+What happens here?
+
+- Developers write code.
+- Each team member works on different features/modules.
+- Code runs on local systems or development servers.
+
+ Purpose
+
+- Build new features
+- Fix issues
+- Test basic functionality
+
+Example
+
+- Member 1 → Login module
+- Member 2 → Dashboard
+- Member 2 → Dashboard
+- Member 3 → Payment module
+- Member 4 → Reports module
+
+After completing their work, developers merge the code into a common repository like GitHub
+
+---
+
+2. QA Environment (Quality Assurance / Testing Env)
+
+What happens here?
+
+- Testing team checks the application.
+- QA engineers test:
+    Bugs
+    Errors
+    Performance
+    UI issues
+    Functional correctness
+
+Flow
+
+1. Developers send code to QA environment.
+2. QA team tests the application.
+3. If bugs are found:
+  - QA raises bug tickets
+  -Developers fix them
+  -Updated code is sent again
+
+Purpose
+To ensure the application is stable before release.
+
+---
+
+3. Continuous Integration (CI)
+Continuous Integration means Developers continuously merge/check-in code into a shared repository.
+
+CI Process
+
+1. Developer pushes code to GitHub/GitLab/Azure Repos.
+2. CI pipeline automatically starts.
+3. Build process runs.
+4. Automated tests execute.
+5. Artifact/package is created.
+
+---
+
+Important Terms:
+
+A. Check-in Code- Uploading code changes to repository.
+
+B. Build- Converting source code into a runnable application.
+Example:
+Java → .jar
+Python → package/docker image
+.NET → .dll
+
+C. Automated Testing- System automatically checks whether code works correctly.
+
+D. Artifact- Final generated package after build.
+Examples:
+.jar
+.war
+.zip
+Docker image
+
+---
+
+4. Continuous Deployment (CD)
+Automatically deploying the built application to servers/environments.
+
+CD Process
+
+  1. Take artifact from CI stage.
+  2. Deploy to:
+  - Azure VM
+  - Web App
+  - Server
+  - Kubernetes
+  3. Application becomes live.
+
+---
+
+Complete Flow of CI/CD Pipeline
+
+    Developers Write Code
+          ↓
+    Code Push to GitHub
+          ↓
+    Continuous Integration (CI)
+   - Build
+   - Testing
+   - Artifact Creation
+          ↓
+    QA Testing
+   - Bug Finding
+   - Bug Fixing
+          ↓
+    Continuous Deployment (CD)
+   - Deploy to Server/Azure/Web App
+          ↓
+    Application Goes Live 
