@@ -1,0 +1,21 @@
+product_id,product_name,category,price,cost,brand
+P101,Laptop,Electronics,55000,48000,Dell
+P102,Smartphone,Electronics,30000,25000,Samsung
+P103,Headphones,Accessories,2000,1200,Boat
+P104,Keyboard,Accessories,1500,900,Logitech
+P105,Mouse,Accessories,800,400,HP
+P106,Television,Electronics,45000,39000,Sony
+P107,Refrigerator,Appliances,38000,32000,LG
+P108,Washing Machine,Appliances,29000,24000,Whirlpool
+P109,Air Conditioner,Appliances,42000,36000,Daikin
+P110,Tablet,Electronics,18000,15000,Lenovo
+P111,Smart Watch,Wearables,5000,3500,Noise
+P112,Speaker,Accessories,3500,2200,JBL
+P113,Printer,Electronics,12000,9500,Canon
+P114,Camera,Electronics,65000,58000,Nikon
+P115,Mixer Grinder,Appliances,4500,3000,Prestige
+P116,Microwave Oven,Appliances,9000,7000,IFB
+P117,Router,Networking,2500,1700,TP-Link
+P118,Power Bank,Accessories,1800,1000,Mi
+P119,External Hard Disk,Storage,6000,4800,Seagate
+P120,USB Drive,Storage,700,350,Sandisk

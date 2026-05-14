@@ -1,0 +1,21 @@
+employee_id,employee_name,designation,store_id,salary
+E101,Ashok Kumar,Sales Executive,S101,35000
+E102,Divya Raj,Cashier,S101,25000
+E103,Rahul Singh,Store Supervisor,S102,45000
+E104,Priya Sharma,Sales Executive,S102,34000
+E105,Vikram Reddy,Sales Executive,S103,36000
+E106,Anjali Mehta,Cashier,S103,26000
+E107,Karthik Nair,Store Supervisor,S104,47000
+E108,Neha Verma,Sales Executive,S104,33000
+E109,Manoj Patel,Sales Executive,S105,34000
+E110,Swathi Rao,Cashier,S105,25000
+E111,Arun Kumar,Store Supervisor,S106,46000
+E112,Sneha Iyer,Sales Executive,S106,35000
+E113,Ravi Teja,Sales Executive,S107,34500
+E114,Meena Das,Cashier,S107,25500
+E115,Suresh Jain,Store Supervisor,S108,45500
+E116,Pallavi Singh,Sales Executive,S108,33500
+E117,Naveen Kumar,Sales Executive,S109,34500
+E118,Deepa Nair,Cashier,S109,25000
+E119,Harsha Vardhan,Store Supervisor,S110,48000
+E120,Aarti Gupta,Sales Executive,S110,34000

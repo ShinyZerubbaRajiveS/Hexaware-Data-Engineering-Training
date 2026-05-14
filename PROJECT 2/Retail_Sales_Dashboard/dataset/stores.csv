@@ -1,0 +1,21 @@
+store_id,store_name,city,region,manager_name
+S101,TechMart Chennai,Chennai,South,Rajesh Kumar
+S102,TechMart Bangalore,Bangalore,South,Anita Sharma
+S103,TechMart Hyderabad,Hyderabad,South,Praveen Reddy
+S104,TechMart Mumbai,Mumbai,West,Rohit Mehta
+S105,TechMart Pune,Pune,West,Sneha Patil
+S106,TechMart Delhi,Delhi,North,Amit Verma
+S107,TechMart Noida,Noida,North,Pooja Singh
+S108,TechMart Kolkata,Kolkata,East,Arjun Das
+S109,TechMart Bhubaneswar,Bhubaneswar,East,Rina Nayak
+S110,TechMart Kochi,Kochi,South,Vinod Nair
+S111,TechMart Jaipur,Jaipur,North,Neha Joshi
+S112,TechMart Ahmedabad,Ahmedabad,West,Karan Shah
+S113,TechMart Surat,Surat,West,Mehul Patel
+S114,TechMart Patna,Patna,East,Rakesh Sinha
+S115,TechMart Lucknow,Lucknow,North,Sonia Gupta
+S116,TechMart Coimbatore,Coimbatore,South,Deepak Ravi
+S117,TechMart Vizag,Vizag,South,Harish Rao
+S118,TechMart Nagpur,Nagpur,West,Vivek Jain
+S119,TechMart Ranchi,Ranchi,East,Alok Mishra
+S120,TechMart Chandigarh,Chandigarh,North,Nikita Arora
