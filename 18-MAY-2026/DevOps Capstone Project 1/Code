@@ -1,0 +1,86 @@
+----> app.py
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Retail Order Management Platform"
+
+@app.route("/health")
+def health():
+    return "Order Service Healthy"
+
+@app.route("/order-status")
+def order_status():
+    return "Order Processing Successfully"
+
+@app.route("/inventory")
+def inventory():
+    return "Inventory Available"
+
+if __name__ == "__main__":
+    app.run()
+
+
+----> requirements.txt
+
+flask
+pytest
+
+
+----> test_app.py
+
+from app import app
+
+def test_home():
+    client = app.test_client()
+    response = client.get("/")
+    assert response.status_code == 200
+
+def test_health():
+    client = app.test_client()
+    response = client.get("/health")
+    assert response.status_code == 200
+
+def test_order_status():
+    client = app.test_client()
+    response = client.get("/order-status")
+    assert response.status_code == 200
+
+def test_inventory():
+    client = app.test_client()
+    response = client.get("/inventory")
+    assert response.status_code == 200
+
+
+----> python-app.yml
+
+name: Retail Order Management CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Tests
+        run: |
+          pytest
